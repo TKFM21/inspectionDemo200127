@@ -16,10 +16,10 @@ const Home = props => {
           <Link to="/product-insp/">製品検査</Link>
         </li>
         <li>
-          <Link to="/final-insp-param/">最終検査条件</Link>
+          <Link to="/final-insp/">最終検査</Link>
         </li>
         <li>
-          <Link to="/final-insp/">最終検査</Link>
+          <Link to="/process-history/">工程履歴</Link>
         </li>
       </ul>
     </div>
