@@ -1,28 +1,27 @@
-import axios from 'axios';
-import OrderInfo from '../models/OrderInfo';
+import axios from "axios";
+import OrderInfo from "../models/OrderInfo";
 
-const API_URL = ;
+const API_URL =
+  "";
 
-export const FETCH_REQUEST = 'FETCH_REQUEST';
-export const FETCH_SUCCESS = 'FETCH_SUCCESS';
-export const FETCH_FAILURE = 'FETCH_FAILURE';
-export const POST_SUCCESS = 'POST_SUCCESS';
-export const PUT_SUCCESS = 'PUT_SUCCESS';
-export const DELETE_SUCCESS = 'DELETE_SUCCESS';
+export const FETCH_REQUEST = "FETCH_REQUEST";
+export const FETCH_SUCCESS = "FETCH_SUCCESS";
+export const FETCH_FAILURE = "FETCH_FAILURE";
+export const POST_SUCCESS = "POST_SUCCESS";
+export const PUT_SUCCESS = "PUT_SUCCESS";
+export const DELETE_SUCCESS = "DELETE_SUCCESS";
 
-export const fetchOrderInfo = (order) => {
-    return async (dispatch) => {
-        dispatch( fetchRequest() );
-        try {
-            console.log(API_URL + order);
-            const response = await axios.get(API_URL + order);
-            console.log(response.data);
-            const orderInfo = new OrderInfo(response.data);
-            dispatch( fetchSuccess(orderInfo) );
-        } catch (error) {
-            dispatch( fetchFailure(error) );
-        }
-    };
+export const fetchOrderInfo = order => {
+  return async dispatch => {
+    dispatch(fetchRequest());
+    try {
+      const response = await axios.get(API_URL + order);
+      const orderInfo = new OrderInfo(response.data);
+      dispatch(fetchSuccess(orderInfo));
+    } catch (error) {
+      dispatch(fetchFailure(error));
+    }
+  };
 };
 
 // export const postTodos = ({ title, body }) => {
@@ -72,16 +71,16 @@ export const fetchOrderInfo = (order) => {
 // };
 
 const fetchRequest = () => {
-    return {
-        type: FETCH_REQUEST
-    }
+  return {
+    type: FETCH_REQUEST
+  };
 };
 
-const fetchSuccess = (orderInfo) => {
-    return {
-        type: FETCH_SUCCESS,
-        orderInfo
-    }
+const fetchSuccess = orderInfo => {
+  return {
+    type: FETCH_SUCCESS,
+    orderInfo
+  };
 };
 
 // const postSuccess = (todo) => {
@@ -105,9 +104,9 @@ const fetchSuccess = (orderInfo) => {
 //     }
 // };
 
-const fetchFailure = (error) => {
-    return {
-        type: FETCH_FAILURE,
-        error
-    }
+const fetchFailure = error => {
+  return {
+    type: FETCH_FAILURE,
+    error
+  };
 };

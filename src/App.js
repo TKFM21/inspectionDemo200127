@@ -4,6 +4,7 @@ import "./App.css";
 import Home from "./components/Home/Home";
 import ModelParam from "./components/ModelParam/ModelParam";
 import OrderInfo from "./components/OrderInfo/OrderInfo";
+import ProductInsp from "./components/ProductInsp/ProductInsp";
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
         <Route path="/" exact component={Home} />
         <Route path="/model-param/" exact component={ModelParam} />
         <Route path="/order-info/" exact component={OrderInfo} />
+        <Route path="/product-insp/" exact component={ProductInsp} />
         {/* 
         <Route path="/product-insp/" exact component={} />
         <Route path="/product-insp/:id" exact component={} />

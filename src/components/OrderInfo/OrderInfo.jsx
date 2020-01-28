@@ -28,7 +28,6 @@ const OrderInfo = props => {
       qty,
       site
     } = props.orderInfo.orderInfo;
-    console.log(props.orderInfo.orderInfo);
     return (
       <div>
         <div>
@@ -37,7 +36,7 @@ const OrderInfo = props => {
           <button onClick={() => onClickHandler(order_no)}>検索</button>
         </div>
         <div>
-          <p>オーダー番号: {model}</p>
+          <p>オーダー番号: {order_no}</p>
           <p>型番: {model}</p>
           <p>アイテム番号: {item_no}</p>
           <p>数量: {qty}</p>
