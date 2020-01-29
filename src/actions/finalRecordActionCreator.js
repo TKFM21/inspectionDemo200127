@@ -1,45 +1,37 @@
 import axios from "axios";
-import OrderTrace from "../models/OrderTrace";
+// import FinalRecord from "../models/FinalRecord";
 
 const API_URL =
-  "";
+"";
 
-const API_URL_GET =
-  "";
+export const FETCH_REQUEST_FR = "FETCH_REQUEST_FR";
+export const FETCH_SUCCESS_FR = "FETCH_SUCCESS_FR";
+export const FETCH_FAILURE_FR = "FETCH_FAILURE_FR";
+export const POST_SUCCESS_FR = "POST_SUCCESS_FR";
+export const PUT_SUCCESS_FR = "PUT_SUCCESS_FR";
+export const DELETE_SUCCESS_FR = "DELETE_SUCCESS_FR";
 
-export const FETCH_REQUEST_OT = "FETCH_REQUEST_OT";
-export const FETCH_SUCCESS_OT = "FETCH_SUCCESS_OT";
-export const FETCH_FAILURE_OT = "FETCH_FAILURE_OT";
-export const POST_SUCCESS_OT = "POST_SUCCESS_OT";
-export const PUT_SUCCESS_OT = "PUT_SUCCESS_OT";
-export const DELETE_SUCCESS_OT = "DELETE_SUCCESS_OT";
+// export const fetchOrderTrace = order => {
+//   return async dispatch => {
+//     dispatch(fetchRequest());
+//     try {
+//       const response = await axios.get(API_URL + order);
+//       const orderTraces = OrderTrace.orderTraceToInstanceArray(response.data);
+//       dispatch(fetchSuccess(orderTraces));
+//     } catch (error) {
+//       dispatch(fetchFailure(error));
+//     }
+//   };
+// };
 
-export const fetchOrderTrace = order => {
+export const postFinalRecord = ({ order, model, judge }) => {
   return async dispatch => {
     dispatch(fetchRequest());
-    try {
-      const response = await axios.get(API_URL_GET + order);
-      const orderTraces = OrderTrace.orderTraceToInstanceArray(response.data);
-      dispatch(fetchSuccess(orderTraces));
-    } catch (error) {
-      dispatch(fetchFailure(error));
-    }
-  };
-};
-
-export const postOrderTrace = ({ order, inspectionQty, ngQty, okQty }) => {
-  return async dispatch => {
-    dispatch(fetchRequest());
-    const timestamp = Date.now();
-    const processName = "製品検査";
     try {
       await axios.post(API_URL, {
         order,
-        inspectionQty,
-        ngQty,
-        okQty,
-        timestamp,
-        processName
+        model,
+        judge
       });
       dispatch(postSuccess());
     } catch (error) {
@@ -80,40 +72,40 @@ export const postOrderTrace = ({ order, inspectionQty, ngQty, okQty }) => {
 
 const fetchRequest = () => {
   return {
-    type: FETCH_REQUEST_OT
+    type: FETCH_REQUEST_FR
   };
 };
 
-const fetchSuccess = orderTraces => {
-  return {
-    type: FETCH_SUCCESS_OT,
-    orderTraces
-  };
-};
+// const fetchSuccess = orderTraces => {
+//   return {
+//     type: FETCH_SUCCESS_FR,
+//     orderTraces
+//   };
+// };
 
 const postSuccess = () => {
   return {
-    type: POST_SUCCESS_OT
+    type: POST_SUCCESS_FR
   };
 };
 
 // const putSuccess = (todo) => {
 //     return {
-//         type: PUT_SUCCESS_OT,
+//         type: PUT_SUCCESS,
 //         todo
 //     }
 // };
 
 // const deleteSuccess = (todo) => {
 //     return {
-//         type: DELETE_SUCCESS_OT,
+//         type: DELETE_SUCCESS,
 //         todo
 //     }
 // };
 
 const fetchFailure = error => {
   return {
-    type: FETCH_FAILURE_OT,
+    type: FETCH_FAILURE_FR,
     error
   };
 };

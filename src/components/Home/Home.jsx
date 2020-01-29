@@ -19,7 +19,7 @@ const Home = props => {
           <Link to="/final-insp/">最終検査</Link>
         </li>
         <li>
-          <Link to="/process-history/">工程履歴</Link>
+          <Link to="/order-history/">工程履歴</Link>
         </li>
       </ul>
     </div>

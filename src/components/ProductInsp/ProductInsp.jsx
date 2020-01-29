@@ -89,7 +89,7 @@ const ProductInsp = props => {
   return (
     <div>
       <div>
-        <h1>オーダー番号を入力してください。</h1>
+        <h1>オーダー番号を入力して、製品検査の結果を記録してください。</h1>
         <input onChange={onChangeOrder} placeholder={"order"} />
         <button onClick={() => onClickHandler(order)}>検索</button>
       </div>

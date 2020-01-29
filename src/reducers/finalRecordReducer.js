@@ -1,41 +1,41 @@
 import {
-    FETCH_REQUEST_OT,
-    FETCH_SUCCESS_OT,
-    FETCH_FAILURE_OT,
-    POST_SUCCESS_OT
-} from '../actions/orderTraceActionCreator';
+    FETCH_REQUEST_FR,
+    //FETCH_SUCCESS_FR,
+    FETCH_FAILURE_FR,
+    POST_SUCCESS_FR
+} from '../actions/finalRecordActionCreator';
 
 const initialState = {
     isLoading: false,
-    orderTraces: [],
+    finalRecords: [],
     error: null
 };
 
-const orderTraceReducer = (state = initialState, action) => {
+const finalRecordReducer = (state = initialState, action) => {
     switch (action.type) {
-        case FETCH_REQUEST_OT:
+        case FETCH_REQUEST_FR:
             return {
                 ...state,
                 isLoading: true
             };
-        case FETCH_SUCCESS_OT:
-            return {
-                ...state,
-                isLoading: false,
-                orderTraces: action.orderTraces
-            };
-        case FETCH_FAILURE_OT:
+        // case FETCH_SUCCESS_FR:
+        //     return {
+        //         ...state,
+        //         isLoading: false,
+        //         orderTraces: action.orderTraces
+        //     };
+        case FETCH_FAILURE_FR:
             return {
                 ...state,
                 isLoading: false,
                 error: action.error
             };
-        case POST_SUCCESS_OT:
+        case POST_SUCCESS_FR:
             return {
                 ...state,
                 isLoading: false
             };
-        // case PUT_SUCCESS_OT:
+        // case PUT_SUCCESS:
         //     const updateTodos = state.todos.map( todo => {
         //         if (action.todo.id === todo.id) {
         //             return action.todo;
@@ -47,7 +47,7 @@ const orderTraceReducer = (state = initialState, action) => {
         //         isLoading: false,
         //         todos: updateTodos
         //     };
-        // case DELETE_SUCCESS_OT:
+        // case DELETE_SUCCESS:
         //     const deleteTodos = state.todos.filter( todo => {
         //         return action.todo.id !== todo.id;
         //     });
@@ -61,4 +61,4 @@ const orderTraceReducer = (state = initialState, action) => {
     }
 };
 
-export default orderTraceReducer;
+export default finalRecordReducer;

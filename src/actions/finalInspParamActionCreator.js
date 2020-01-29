@@ -1,23 +1,25 @@
 import axios from "axios";
-import OrderInfo from "../models/OrderInfo";
+import FinalInspParam from "../models/FinalInspParam";
 
 const API_URL =
-"";
+  "";
 
-export const FETCH_REQUEST = "FETCH_REQUEST";
-export const FETCH_SUCCESS = "FETCH_SUCCESS";
-export const FETCH_FAILURE = "FETCH_FAILURE";
-export const POST_SUCCESS = "POST_SUCCESS";
-export const PUT_SUCCESS = "PUT_SUCCESS";
-export const DELETE_SUCCESS = "DELETE_SUCCESS";
+export const FETCH_REQUEST_FIP = "FETCH_REQUEST_FIP";
+export const FETCH_SUCCESS_FIP = "FETCH_SUCCESS_FIP";
+export const FETCH_FAILURE_FIP = "FETCH_FAILURE_FIP";
+export const POST_SUCCESS_FIP = "POST_SUCCESS_FIP";
+export const PUT_SUCCESS_FIP = "PUT_SUCCESS_FIP";
+export const DELETE_SUCCESS_FIP = "DELETE_SUCCESS_FIP";
 
-export const fetchOrderInfo = order => {
+export const fetchFinalInspParam = model => {
   return async dispatch => {
     dispatch(fetchRequest());
     try {
-      const response = await axios.get(API_URL + order);
-      const orderInfo = new OrderInfo(response.data);
-      dispatch(fetchSuccess(orderInfo));
+      const response = await axios.get(API_URL + model);
+      const finalInspParams = FinalInspParam.finalInspParamsToInstanceArray(
+        response.data.inspectionItems.items
+      );
+      dispatch(fetchSuccess(finalInspParams));
     } catch (error) {
       dispatch(fetchFailure(error));
     }
@@ -72,14 +74,14 @@ export const fetchOrderInfo = order => {
 
 const fetchRequest = () => {
   return {
-    type: FETCH_REQUEST
+    type: FETCH_REQUEST_FIP
   };
 };
 
-const fetchSuccess = orderInfo => {
+const fetchSuccess = finalInspParams => {
   return {
-    type: FETCH_SUCCESS,
-    orderInfo
+    type: FETCH_SUCCESS_FIP,
+    finalInspParams
   };
 };
 
@@ -106,7 +108,7 @@ const fetchSuccess = orderInfo => {
 
 const fetchFailure = error => {
   return {
-    type: FETCH_FAILURE,
+    type: FETCH_FAILURE_FIP,
     error
   };
 };

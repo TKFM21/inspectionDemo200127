@@ -5,6 +5,8 @@ import Home from "./components/Home/Home";
 import ModelParam from "./components/ModelParam/ModelParam";
 import OrderInfo from "./components/OrderInfo/OrderInfo";
 import ProductInsp from "./components/ProductInsp/ProductInsp";
+import FinalInspection from "./components/FinalInspection/FinalInspection";
+import OrderHistory from "./components/OrderHistory/OrderHistory";
 
 function App() {
   return (
@@ -14,13 +16,8 @@ function App() {
         <Route path="/model-param/" exact component={ModelParam} />
         <Route path="/order-info/" exact component={OrderInfo} />
         <Route path="/product-insp/" exact component={ProductInsp} />
-        {/* 
-        <Route path="/product-insp/" exact component={} />
-        <Route path="/product-insp/:id" exact component={} />
-        <Route path="/final-insp-param/" exact component={} />
-        <Route path="/final-insp-param/:id" exact component={} />
-        <Route path="/final-insp/" exact component={} />
-        <Route path="/final-insp/:id" exact component={} /> */}
+        <Route path="/final-insp/" exact component={FinalInspection} />
+        <Route path="/order-history/" exact component={OrderHistory} />
       </div>
     </Router>
   );
