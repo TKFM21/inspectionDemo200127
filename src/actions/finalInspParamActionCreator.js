@@ -2,7 +2,7 @@ import axios from "axios";
 import FinalInspParam from "../models/FinalInspParam";
 
 const API_URL =
-  "";
+  "https://f8";
 
 export const FETCH_REQUEST_FIP = "FETCH_REQUEST_FIP";
 export const FETCH_SUCCESS_FIP = "FETCH_SUCCESS_FIP";

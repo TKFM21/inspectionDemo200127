@@ -2,7 +2,7 @@ import axios from "axios";
 import OrderInfo from "../models/OrderInfo";
 
 const API_URL =
-"";
+"https://sq";
 
 export const FETCH_REQUEST = "FETCH_REQUEST";
 export const FETCH_SUCCESS = "FETCH_SUCCESS";

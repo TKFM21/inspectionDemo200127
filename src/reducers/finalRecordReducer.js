@@ -1,6 +1,6 @@
 import {
     FETCH_REQUEST_FR,
-    //FETCH_SUCCESS_FR,
+    FETCH_SUCCESS_FR,
     FETCH_FAILURE_FR,
     POST_SUCCESS_FR
 } from '../actions/finalRecordActionCreator';
@@ -18,12 +18,12 @@ const finalRecordReducer = (state = initialState, action) => {
                 ...state,
                 isLoading: true
             };
-        // case FETCH_SUCCESS_FR:
-        //     return {
-        //         ...state,
-        //         isLoading: false,
-        //         orderTraces: action.orderTraces
-        //     };
+        case FETCH_SUCCESS_FR:
+            return {
+                ...state,
+                isLoading: false,
+                finalRecords: action.finalRecords
+            };
         case FETCH_FAILURE_FR:
             return {
                 ...state,

@@ -2,10 +2,10 @@ import axios from "axios";
 import OrderTrace from "../models/OrderTrace";
 
 const API_URL =
-  "";
+  "https://1m";
 
 const API_URL_GET =
-  "";
+  "https://oi";
 
 export const FETCH_REQUEST_OT = "FETCH_REQUEST_OT";
 export const FETCH_SUCCESS_OT = "FETCH_SUCCESS_OT";

@@ -1,11 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import "./Home.css";
 
 const Home = props => {
   return (
-    <div>
+    <div className="home">
       <h1>作業を選択して開始してください。</h1>
-      <ul style={{listStyle: "none" }}>
+      <ul>
         <li>
           <Link to="/order-info/">オーダー番号情報</Link>
         </li>

@@ -1,8 +1,11 @@
 import axios from "axios";
-// import FinalRecord from "../models/FinalRecord";
+import FinalRecord from "../models/FinalRecord";
 
-const API_URL =
-"";
+const API_URL_POST =
+"https://sh";
+
+const API_URL_GET =
+"https://sh";
 
 export const FETCH_REQUEST_FR = "FETCH_REQUEST_FR";
 export const FETCH_SUCCESS_FR = "FETCH_SUCCESS_FR";
@@ -11,24 +14,24 @@ export const POST_SUCCESS_FR = "POST_SUCCESS_FR";
 export const PUT_SUCCESS_FR = "PUT_SUCCESS_FR";
 export const DELETE_SUCCESS_FR = "DELETE_SUCCESS_FR";
 
-// export const fetchOrderTrace = order => {
-//   return async dispatch => {
-//     dispatch(fetchRequest());
-//     try {
-//       const response = await axios.get(API_URL + order);
-//       const orderTraces = OrderTrace.orderTraceToInstanceArray(response.data);
-//       dispatch(fetchSuccess(orderTraces));
-//     } catch (error) {
-//       dispatch(fetchFailure(error));
-//     }
-//   };
-// };
+export const fetchFinalRecord = order => {
+  return async dispatch => {
+    dispatch(fetchRequest());
+    try {
+      const response = await axios.get(API_URL_GET + order);
+      const finalRecords = FinalRecord.finalRecordToInstanceArray(response.data);
+      dispatch(fetchSuccess(finalRecords));
+    } catch (error) {
+      dispatch(fetchFailure(error));
+    }
+  };
+};
 
 export const postFinalRecord = ({ order, model, judge }) => {
   return async dispatch => {
     dispatch(fetchRequest());
     try {
-      await axios.post(API_URL, {
+      await axios.post(API_URL_POST, {
         order,
         model,
         judge
@@ -76,12 +79,12 @@ const fetchRequest = () => {
   };
 };
 
-// const fetchSuccess = orderTraces => {
-//   return {
-//     type: FETCH_SUCCESS_FR,
-//     orderTraces
-//   };
-// };
+const fetchSuccess = finalRecords => {
+  return {
+    type: FETCH_SUCCESS_FR,
+    finalRecords
+  };
+};
 
 const postSuccess = () => {
   return {

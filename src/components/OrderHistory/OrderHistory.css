@@ -1,0 +1,12 @@
+.order-history table {
+  border-collapse: collapse;
+}
+
+.order-history table th, .order-history table td {
+  border: 1px solid #000000;
+}
+
+.order-history table th {
+  background-color: #696969;
+  color: #ffffff;
+}

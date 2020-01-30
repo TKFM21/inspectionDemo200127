@@ -2,7 +2,7 @@ import axios from "axios";
 import ModelParam from "../models/ModelParam";
 
 const API_URL =
-  "";
+  "https://4g";
 
 export const FETCH_REQUEST = "FETCH_REQUEST";
 export const FETCH_SUCCESS = "FETCH_SUCCESS";
